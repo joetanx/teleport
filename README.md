@@ -67,10 +67,51 @@ NOTE: Make sure teleport.vx:443 points at a Teleport proxy which users can acces
 
 ![image](https://github.com/joetanx/teleport/assets/90442032/332b2d58-7b16-49c6-b439-2eb5180861b4)
 
-To update user logins for Linux nodes
+## 2. Linux access
+
+![image](https://github.com/joetanx/teleport/assets/90442032/55a3185b-4c0f-40f5-81cc-66027c3c5122)
+
+![image](https://github.com/joetanx/teleport/assets/90442032/7da965d5-0b2e-45cc-84ae-46ee1cbe104a)
 
 ```console
-[root@teleport ~]# tctl users update joe.tan --set-logins root,rhel-user
-User joe.tan has been updated:
-        New logins: root,rhel-user
+[root@delta ~]# bash -c "$(curl -fsSL https://teleport.vx/scripts/e69058fc2e11c643bae3a151d404b471/install-node.sh)"
+⋮
+Installed:
+  teleport-15.0.2-1.x86_64
+
+Complete!
+2024-02-19 22:05:36 +08 [teleport-installer] Found: Teleport v15.0.2 git:v15.0.2-0-g520f79d go1.21.7
+2024-02-19 22:05:36 +08 [teleport-installer] Writing Teleport node service config to /etc/teleport.yaml
+
+A Teleport configuration file has been created at "/etc/teleport.yaml".
+To start Teleport with this configuration file, run:
+
+teleport start --config="/etc/teleport.yaml"
+
+Happy Teleporting!
+2024-02-19 22:05:36 +08 [teleport-installer] Host is using systemd
+2024-02-19 22:05:36 +08 [teleport-installer] Starting Teleport via systemd. It will automatically be started whenever the system reboots.
+Created symlink /etc/systemd/system/multi-user.target.wants/teleport.service → /usr/lib/systemd/system/teleport.service.
+
+Teleport has been started.
+
+View its status with 'sudo systemctl status teleport.service'
+View Teleport logs using 'sudo journalctl -u teleport.service'
+To stop Teleport, run 'sudo systemctl stop teleport.service'
+To start Teleport again if you stop it, run 'sudo systemctl start teleport.service'
+
+You can see this node connected in the Teleport web UI or 'tsh ls' with the name 'delta.vx'
+Find more details on how to use Teleport here: https://goteleport.com/docs/user-manual/
+
+[root@delta ~]# useradd rhel-user
 ```
+
+![image](https://github.com/joetanx/teleport/assets/90442032/e4faf926-b7dc-4f28-bf43-5efccfed92ed)
+
+![image](https://github.com/joetanx/teleport/assets/90442032/0ecc3f39-82c0-4de0-8170-26f36bb0d574)
+
+![image](https://github.com/joetanx/teleport/assets/90442032/17490800-52d3-474b-99c2-c804b388c95f)
+
+![image](https://github.com/joetanx/teleport/assets/90442032/2167fbe2-27a1-40af-adcf-35f2fcdfb159)
+
+![image](https://github.com/joetanx/teleport/assets/90442032/d2377727-6427-4c71-a6c3-b89b30e7e95c)
